@@ -3,7 +3,7 @@ package basespace
 import (
 	"bytes"
 	"encoding/json"
-  "io/ioutil"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 )
@@ -74,14 +74,14 @@ func (c *Client) NewRequest(method string, uri string, body interface{}) (*http.
 }
 
 func (c *Client) Do(req *http.Request) (*ApiResponse, error) {
-  resp, err := c.client.Do(req)
-  if err != nil {
-    return nil, err
-  }
+	resp, err := c.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
 
-  defer resp.Body.Close()
+	defer resp.Body.Close()
 
-  apiResponse, err := c.getResponse(resp)
+	apiResponse, err := c.getResponse(resp)
 	if err != nil {
 		return nil, err
 	}
@@ -90,16 +90,16 @@ func (c *Client) Do(req *http.Request) (*ApiResponse, error) {
 }
 
 func (c *Client) getResponse(r *http.Response) (*ApiResponse, error) {
-  data, err := ioutil.ReadAll(r.Body)
-  if err != nil {
-    return nil, err
-  }
+	data, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		return nil, err
+	}
 
-  var apiResponse ApiResponse
-  e := json.Unmarshal(data, &apiResponse)
-  if e != nil {
-    return nil, e
-  }
+	var apiResponse ApiResponse
+	e := json.Unmarshal(data, &apiResponse)
+	if e != nil {
+		return nil, e
+	}
 
-  return &apiResponse, nil
+	return &apiResponse, nil
 }

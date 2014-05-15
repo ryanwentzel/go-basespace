@@ -3,7 +3,7 @@ package basespace
 import (
 	"encoding/json"
 	"errors"
-	)
+)
 
 type User struct {
 	Id             *string  `json:"id,omitempty"`
