@@ -31,6 +31,7 @@ type Client struct {
 	UserAgent string
 
 	Users *UsersService
+	AppSessions *AppSessionsService
 }
 
 func NewClient(httpClient *http.Client) *Client {
@@ -42,6 +43,7 @@ func NewClient(httpClient *http.Client) *Client {
 
 	newClient := &Client{client: httpClient, ApiURL: apiURL, ApiVersion: apiVersion, UserAgent: userAgent}
 	newClient.Users = &UsersService{client: newClient, mapper: &Mapper{}}
+	newClient.AppSessions = &AppSessionsService{client: newClient, mapper: &Mapper{}}
 
 	return newClient
 }

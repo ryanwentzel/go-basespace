@@ -9,8 +9,8 @@ func TestUsers_GetCurrent(t *testing.T) {
 	client := createClient()
 	u, err := client.Users.GetCurrent()
 	if err != nil {
-		t.Errorf("GetCurrentUser - %v", err)
+		t.Errorf("Users.GetCurrent returned error: %v", err)
 	}
 
-	log.Printf("GetCurrentUser - %v", u.JSON())
+	log.Printf("Users.GetCurrent returned: %v", *u.Email)
 }

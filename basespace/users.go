@@ -36,13 +36,13 @@ type UsersService struct {
 
 // GetCurrent fetches the current user.
 // GET /users/current
-func (u *UsersService) GetCurrent() (*User, error) {
-	req, err := u.client.NewRequest("GET", "users/current", nil)
+func (s *UsersService) GetCurrent() (*User, error) {
+	req, err := s.client.NewRequest("GET", "users/current", nil)
 	if err != nil {
 		return nil, err
 	}
 
-	resp, err := u.client.Do(req)
+	resp, err := s.client.Do(req)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (u *UsersService) GetCurrent() (*User, error) {
 		return nil, errors.New(resp.Status.Error())
 	}
 
-	user, err := u.mapper.User(resp.Response)
+	user, err := s.mapper.User(resp.Response)
 	if err != nil {
 		return nil, err
 	}
