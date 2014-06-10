@@ -6,8 +6,15 @@ import (
 )
 
 type AppSession struct {
-	Id   *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Id            *string `json:"id,omitempty"`
+	Name          *string `json:"name,omitempty"`
+	Href          *string `json:"href,omitempty"`
+	UserCreatedBy *User   `json:"usercreatedby,omitempty"`
+	Status        *string `json:"status,omitempty"`
+	StatusSummary *string `json:statussummary,omitempty"`
+	DateCreated   *string `json:datecreated,omitempty"`
+	ModifiedOn    *string `json:modifiedon,omitempty"`
+	TotalSize     int64   `json:"totalsize,omitempty"`
 }
 
 func (a *AppSession) JSON() string {
