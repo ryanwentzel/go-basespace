@@ -30,7 +30,7 @@ type Client struct {
 	// User agent used when making requests to the BaseSpace API
 	UserAgent string
 
-	Users *UsersService
+	Users       *UsersService
 	AppSessions *AppSessionsService
 }
 
