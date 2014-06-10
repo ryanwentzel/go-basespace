@@ -23,7 +23,7 @@ func (m *Mapper) ListResponse(data map[string]interface{}) (*ApiListResponse, er
 		return nil, err
 	}
 
-	return &resp, nil;
+	return &resp, nil
 }
 
 func (m *Mapper) AppSessions(response ApiListResponse) (*[]AppSession, error) {
